@@ -17,6 +17,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate
     
     var currentLocation = CLLocation()
     
+    var parks = [MKMapItem]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -44,9 +46,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate
         
         mapView.setRegion(region, animated: true)
         
+    }
+    
+    @IBAction func SearchButtonTapped(_ sender: UIBarButtonItem)
+    {
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "Parks"
+        
+        request.region = mapView.region
+        
+        let search = MKLocalSearch(request: request)
+        
+        search.start {
+            response, error in
+            
+            guard let theResponse = response else {return}
+            
+            for mapItem in theResponse.mapItems
+            {
+                self.parks.append(mapItem)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = mapItem.placemark.coordinate
+                annotation.title = mapItem.name
+                self.mapView.addAnnotation(annotation)
+                
+            }
+            
+        }
         
         
     }
+    
     
 }
 

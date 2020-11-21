@@ -36,7 +36,11 @@
                                 <action selector="zoomButtonTspped:" destination="BYZ-38-t0r" id="TsW-xf-QFX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Grj-Gl-zL9"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Grj-Gl-zL9">
+                            <connections>
+                                <action selector="SearchButtonTapped:" destination="BYZ-38-t0r" id="fmm-Hi-wjU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="CDm-3K-JXv" id="v8b-JZ-rle"/>
