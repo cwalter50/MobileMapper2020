@@ -35,6 +35,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate
         currentLocation = locations[0]
     }
 
-
+    @IBAction func zoomButtonTspped(_ sender: UIBarButtonItem)
+    {
+        let center = currentLocation.coordinate
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        
+        let region = MKCoordinateRegion(center: center, span: span)
+        
+        mapView.setRegion(region, animated: true)
+        
+        
+        
+    }
+    
 }
 

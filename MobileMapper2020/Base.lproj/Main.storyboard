@@ -31,7 +31,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mobile Mapper" id="OIW-fk-oe2">
-                        <barButtonItem key="leftBarButtonItem" title="Zoom" id="Xiv-t5-oW2"/>
+                        <barButtonItem key="leftBarButtonItem" title="Zoom" id="Xiv-t5-oW2">
+                            <connections>
+                                <action selector="zoomButtonTspped:" destination="BYZ-38-t0r" id="TsW-xf-QFX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Grj-Gl-zL9"/>
                     </navigationItem>
                     <connections>
